@@ -16,7 +16,9 @@ def prediction(Gender, Married, Dependents, Education, Self_Employed, ApplicantI
     
     Self_Employed = 1 if Self_Employed == "Yes" else 0
     
-    TotalIncome = np.log(ApplicantIncome + CoapplicantIncome)
+    TotalIncome = ApplicantIncome + CoapplicantIncome
+    
+    TotalIncome = TotalIncome if not TotalIncome else np.log(TotalIncome)
     
     Credit_History = 1 if Credit_History == "Outstanding Loan" else 0
     
